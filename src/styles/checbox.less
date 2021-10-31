@@ -1,0 +1,67 @@
+/*
+ * @Author: gyb
+ * @Date: 2021-10-29
+ * @Description: 单选组件样式
+ */
+
+.sf-checkbox {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+
+    &_inner,
+    &_input {
+        width: 18px;   
+        height: 18px;
+    }
+
+    &_inner {
+        position: absolute;
+        display: inline-block;
+        box-shadow: 0 0 0 1px #ddd;
+        border-radius: 2px;
+        color: #fff;
+        background-color: currentColor;
+        transition: background-color 0.25s;
+
+        &::after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: '';
+            width: 14px;
+            height: 6px;
+            border: 2px solid #fff;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            background-color: transparent;
+            transform: rotate(-45deg) translateX(-1px) translateY(4px);
+        }
+
+        &--checked {
+            color: var(--active-color);
+            box-shadow: 0 0 0 1px currentColor;
+        }
+
+        &--half {
+            color: #fff;
+            
+            &::after {
+                right: 0;
+                bottom: 0;
+                width: 8px;
+                height: 8px;
+                margin: auto;
+                color: var(--active-color);
+                background-color: currentColor;
+                border-color: currentColor;
+                transform: rotate(0);
+            }
+        }
+    }
+
+    &_input {
+        cursor: pointer;
+        opacity: 0;
+    }
+}

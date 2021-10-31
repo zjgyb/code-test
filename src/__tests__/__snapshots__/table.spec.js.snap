@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table render 1`] = `
+"<div>
+  <table class=\\"sf-table\\">
+    <colgroup></colgroup>
+    <thead class=\\"sf-table-thead\\">
+      <tr></tr>
+    </thead>
+    <tbody class=\\"sf-table-tbody\\">
+      <tr class=\\"sf-table-placeholder\\">
+        <td colspan=\\"0\\" class=\\"sf-table-cell\\">No data</td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class=\\"sf-pagination sf-table-pagination\\">
+    <li title=\\"上一页\\" class=\\"sf-pagination-item sf-pagination-item--disabled\\">&lt;</li>
+    <li title=\\"1\\" class=\\"sf-pagination-item sf-pagination-item--active\\">1</li>
+    <li title=\\"下一页\\" class=\\"sf-pagination-item\\">&gt;</li>
+  </ul>
+</div>"
+`;

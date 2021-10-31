@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination render 1`] = `"<label class=\\"sf-checkbox\\"><span class=\\"sf-checkbox_inner\\"></span><input type=\\"checkbox\\" class=\\"sf-checkbox_input\\"></label>"`;

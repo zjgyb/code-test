@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination render 1`] = `
+"<ul class=\\"sf-pagination\\">
+  <li title=\\"上一页\\" class=\\"sf-pagination-item\\">&lt;</li>
+  <li title=\\"1\\" class=\\"sf-pagination-item sf-pagination-item--active\\">1</li>
+  <li title=\\"下一页\\" class=\\"sf-pagination-item\\">&gt;</li>
+</ul>"
+`;

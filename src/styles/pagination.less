@@ -1,0 +1,65 @@
+/*
+ * @Author: gyb
+ * @Date: 2021-10-18
+ * @Description: 分页器样式
+ */
+
+.sf-pagination {
+  display: flex;
+
+  &-item {
+    min-width: 32px;
+    height: 32px;
+    line-height: 30px;
+    border: 1px solid #f5f5f5;
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+
+    &:hover,
+    &--active {
+      color: var(--active-color);
+      border-color: var(--active-color);
+    }
+
+    &--disabled {
+
+      &,
+      &:hover {
+        color: #eee;
+        border-color: #d9d9d9;
+        cursor: not-allowed;
+      }
+
+      user-select: none;
+    }
+
+    &_prev {
+      &::after {
+        content: "···";
+      }
+
+      &:hover {
+        &::after {
+          content: "<<";
+        }
+      }
+    }
+
+    &_next {
+      &::after {
+        content: "···";
+      }
+
+      &:hover {
+        &::after {
+          content: ">>";
+        }
+      }
+    }
+  }
+}

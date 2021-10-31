@@ -1,0 +1,80 @@
+/*
+ * @Author: gyb
+ * @Date: 2021-10-17
+ * @Description: 表格样式
+ */
+
+.sf-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+
+  &-thead &-cell {
+    padding: 16px;
+    background-color: #fafafa;
+  }
+
+  &-sorter {
+    display: inline-flex;
+    flex-direction: column;
+    height: 20px;
+    color: #bfbfbf;
+
+    &-down {
+      transform: translateY(-10px);
+    }
+
+    &--active {
+      color: var(--active-color);
+    }
+  }
+
+  &-placeholder {
+    text-align: center;
+  }
+
+  &-cell {
+    padding: 0 16px;
+
+    &-hbox {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-title {
+      margin-right: 8px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    &-selection {
+      display: flex;
+      justify-content: center;
+    }
+
+    &--sorable {
+      cursor: pointer;
+    }
+
+    &--normal {
+      height: 40px;
+    }
+
+    &--sm {
+      height: 32px;
+    }
+
+    &--lg {
+      height: 48px;
+    }
+  }
+
+  &-pagination {
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+  }
+}
