@@ -1,51 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="21" failures="0" errors="0" time="8.01">
-  <testsuite name="Pagination" errors="0" failures="0" skipped="0" timestamp="2021-10-31T13:16:41" time="1.71" tests="3">
-    <testcase classname="Pagination render" name="Pagination render" time="0.054">
+<testsuites name="jest tests" tests="22" failures="0" errors="0" time="7.854">
+  <testsuite name="Pagination" errors="0" failures="0" skipped="0" timestamp="2021-11-01T15:15:08" time="1.899" tests="4">
+    <testcase classname="Pagination render" name="Pagination render" time="0.062">
     </testcase>
-    <testcase classname="Pagination checked" name="Pagination checked" time="0.034">
+    <testcase classname="Pagination checked" name="Pagination checked" time="0.029">
     </testcase>
-    <testcase classname="Pagination half checked" name="Pagination half checked" time="0.033">
+    <testcase classname="Pagination half checked" name="Pagination half checked" time="0.005">
     </testcase>
-  </testsuite>
-  <testsuite name="Pagination" errors="0" failures="0" skipped="0" timestamp="2021-10-31T13:16:41" time="1.994" tests="6">
-    <testcase classname="Pagination render" name="Pagination render" time="0.119">
-    </testcase>
-    <testcase classname="Pagination click" name="Pagination click" time="0.059">
-    </testcase>
-    <testcase classname="Pagination hasPrev5" name="Pagination hasPrev5" time="0.02">
-    </testcase>
-    <testcase classname="Pagination hasNext5" name="Pagination hasNext5" time="0.018">
-    </testcase>
-    <testcase classname="Pagination prev click" name="Pagination prev click" time="0.015">
-    </testcase>
-    <testcase classname="Pagination next click" name="Pagination next click" time="0.03">
+    <testcase classname="Pagination disabled" name="Pagination disabled" time="0.004">
     </testcase>
   </testsuite>
-  <testsuite name="Table" errors="0" failures="0" skipped="0" timestamp="2021-10-31T13:16:41" time="4.492" tests="12">
-    <testcase classname="Table render" name="Table render" time="0.076">
+  <testsuite name="Pagination" errors="0" failures="0" skipped="0" timestamp="2021-11-01T15:15:08" time="1.939" tests="6">
+    <testcase classname="Pagination render" name="Pagination render" time="0.092">
     </testcase>
-    <testcase classname="Table props empty data" name="Table props empty data" time="0.04">
+    <testcase classname="Pagination click" name="Pagination click" time="0.056">
     </testcase>
-    <testcase classname="Table props emptyText" name="Table props emptyText" time="0.013">
+    <testcase classname="Pagination hasPrev5" name="Pagination hasPrev5" time="0.028">
     </testcase>
-    <testcase classname="Table sortable" name="Table sortable" time="0.024">
+    <testcase classname="Pagination hasNext5" name="Pagination hasNext5" time="0.013">
     </testcase>
-    <testcase classname="Table pagination" name="Table pagination" time="0.143">
+    <testcase classname="Pagination prev click" name="Pagination prev click" time="0.009">
+    </testcase>
+    <testcase classname="Pagination next click" name="Pagination next click" time="0.009">
+    </testcase>
+  </testsuite>
+  <testsuite name="Table" errors="0" failures="0" skipped="0" timestamp="2021-11-01T15:15:08" time="4.886" tests="12">
+    <testcase classname="Table render" name="Table render" time="0.051">
+    </testcase>
+    <testcase classname="Table props empty data" name="Table props empty data" time="0.021">
+    </testcase>
+    <testcase classname="Table props emptyText" name="Table props emptyText" time="0.011">
+    </testcase>
+    <testcase classname="Table sortable" name="Table sortable" time="0.026">
+    </testcase>
+    <testcase classname="Table pagination" name="Table pagination" time="0.139">
     </testcase>
     <testcase classname="Table pagination empty" name="Table pagination empty" time="0.085">
     </testcase>
-    <testcase classname="Table slots empty" name="Table slots empty" time="0.026">
+    <testcase classname="Table slots empty" name="Table slots empty" time="0.028">
     </testcase>
-    <testcase classname="Table slots header" name="Table slots header" time="0.012">
+    <testcase classname="Table slots header" name="Table slots header" time="0.023">
     </testcase>
-    <testcase classname="Table table header hide" name="Table table header hide" time="0.029">
+    <testcase classname="Table table header hide" name="Table table header hide" time="0.03">
     </testcase>
-    <testcase classname="Table slots body" name="Table slots body" time="0.027">
+    <testcase classname="Table slots body" name="Table slots body" time="0.021">
     </testcase>
-    <testcase classname="Table table selectable" name="Table table selectable" time="0.045">
+    <testcase classname="Table table selectable" name="Table table selectable" time="0.068">
     </testcase>
-    <testcase classname="Table table rowHeight" name="Table table rowHeight" time="0.034">
+    <testcase classname="Table table rowHeight" name="Table table rowHeight" time="0.027">
     </testcase>
   </testsuite>
 </testsuites>

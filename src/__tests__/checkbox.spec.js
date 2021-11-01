@@ -35,4 +35,15 @@ describe('Pagination', () => {
         const checkbox = wrapper.find('.sf-checkbox_inner--half');
         expect(checkbox.exists()).toBeTruthy();
     });
+
+    test('disabled', async() => {
+        const wrapper = CheckboxMount({
+            propsData: {
+                checked: false,
+                disabled: true
+            }
+        })
+        const checkbox = wrapper.find('.sf-checkbox_inner--disabled');
+        expect(checkbox.exists()).toBeTruthy();
+    });
 })

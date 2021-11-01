@@ -23,7 +23,8 @@ export default defineComponent({
 			return {
 				'sf-checkbox_inner': true,
 				'sf-checkbox_inner--checked': props.checked,
-				'sf-checkbox_inner--half': props.isHalf
+				'sf-checkbox_inner--half': props.isHalf,
+				'sf-checkbox_inner--disabled': props.disabled
 			}
 		});
 
@@ -34,7 +35,8 @@ export default defineComponent({
 					<input class="sf-checkbox_input"
 						   type="checkbox"
 						   checked={props.checked}
-						   onChange={onCheckboxChange} />
+						   onChange={onCheckboxChange}
+						   disabled={props.disabled} />
 				</label>
 			)
 		}

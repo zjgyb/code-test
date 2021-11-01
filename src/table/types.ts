@@ -99,7 +99,7 @@ export interface TableHeaderOptions extends TableArgs {
 }
 
 export interface TableBodyOptions extends TableArgs {
-  tableData: ComputedRef<TableRecord[]>;
+  tableData: Ref<TableRecord[]>;
   onChangeCheckbox: (record: TableRecord) => void;
   tdClasses: ComputedRef<{ [name: string]: boolean }>;
   tdStyles: ComputedRef<StyleValue>;

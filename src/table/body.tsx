@@ -9,7 +9,7 @@ import type { TableBodyOptions } from './types';
 import { SfCheckbox } from '../form/checkbox';
 
 export function renderBody(options: TableBodyOptions) {
-	const { context, props, tableData, onChangeCheckbox, tdClasses, tdStyles } = options;	
+	const { context, props, tableData, onChangeCheckbox, tdClasses, tdStyles } = options;
 
 	return (
 		tableData.value.map(record => {

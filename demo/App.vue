@@ -33,13 +33,13 @@
                rowHeight="lg" />
     
     <SfPagination :current.sync="current" :total="total" />
-    <SfCheckbox :checked.sync="checked" />
+    <SfCheckbox :checked.sync="checked" :disabled="true" />
   </div>
 </template>
 
 <script lang="ts">
 import { TestTable } from "../src/table";
-import { defineComponent, reactive, ref, Ref } from "@vue/composition-api";
+import { defineComponent, ref, Ref } from "@vue/composition-api";
 import { columns, data } from "./const";
 import { cloneDeep } from "lodash-es";
 import { SfPagination } from '../src/pagination';
@@ -58,7 +58,6 @@ export default defineComponent({
   },
   setup() {
     const tableData: Ref<AnyObject[]> = ref([]);
-    // const table = ref(null);
     const pagination = ref<Partial<Pagination> | false>({
       total: 10,
     });

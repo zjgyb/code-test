@@ -18,7 +18,7 @@ export default defineComponent({
   props: tableProps,
   setup(props: TablePublicProps, context) {
     const { rowHeight, data, pagination } = toRefs(props);
-    const isShowPager = computed(() => pagination.value);
+    const isShowPager = computed(() => !!pagination.value);
     const total = computed(() => data.value.length);
     const { sortField, onChangeSort } = useSort();
     const { paginationOptions, onChangePager } = usePager(pagination, total);
@@ -29,22 +29,15 @@ export default defineComponent({
     return () => {
       const headerNode = renderHeader({ props, context, sortField, checked, onChangeSelections, isHalfChecked, onChangeSort });
       const emptyNode = renderEmpty(props, context);
-      const bodyNode = renderBody({
-        props,
-        context,
-        tableData,
-        tdClasses,
-        tdStyles,
-        onChangeCheckbox
-      });
+      const bodyNode = renderBody({ props, context, tableData, tdClasses, tdStyles, onChangeCheckbox });
       const paginationNode = renderPagination({ props, context, pagination: paginationOptions, onChangePager });
 
       return (
         <div>
           <table class="sf-table">
-            <colgroup>
+            {/* <colgroup>
               {props.columns.map(() => <col />)}
-            </colgroup>
+            </colgroup> */}
             {headerNode}
             <tbody class="sf-table-tbody">
               {!props.data.length ? emptyNode : bodyNode}

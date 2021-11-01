@@ -3,7 +3,6 @@
 exports[`Table render 1`] = `
 "<div>
   <table class=\\"sf-table\\">
-    <colgroup></colgroup>
     <thead class=\\"sf-table-thead\\">
       <tr></tr>
     </thead>

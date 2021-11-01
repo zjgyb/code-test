@@ -226,6 +226,8 @@ describe('Table', () => {
         expect(bodyCheckbox.exists()).toBeTruthy();
         const bodyCheckboxInput = bodyCheckbox.find('input');
         expect(bodyCheckboxInput.exists()).toBeTruthy();
+
+        // body checkbox checked
         await bodyCheckboxInput.setChecked();
         expect(bodyCheckboxInput.element.checked).toBeTruthy();
         expect(wrapper.emitted().select).toBeTruthy();

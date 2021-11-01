@@ -58,10 +58,18 @@
                 transform: rotate(0);
             }
         }
+
+        &--disabled {
+            color: #eee;
+        }
     }
 
     &_input {
         cursor: pointer;
         opacity: 0;
+
+        &[disabled="disabled"] {
+            cursor: not-allowed;
+        }
     }
 }

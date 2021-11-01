@@ -72,9 +72,7 @@ export function useData(data: Ref<AnyObject[]>, sortField: Partial<SortKeys>, pa
 	});
 
 	// 判读是否需要截取数据，如果截取数据不为空，则截取，否则直接用源数据
-	const tableData = computed(() => {
-		console.log('isShowPager', isShowPager.value);
-		
+	const sliceData = computed(() => {
 		if (!isShowPager.value) {
 			return sourceData.value;
 		}
@@ -84,10 +82,16 @@ export function useData(data: Ref<AnyObject[]>, sortField: Partial<SortKeys>, pa
 		return sliceData.length ? sliceData : sortData.value;
 	});
 
+	const tableData = ref(sliceData.value);
+
 	// 页码或者排序变化时向外抛出事件
 	watch(isShowPager.value ? [sortField, pagination] : [sortField], () => {
 		vm?.emit('change', pagination, sortField);
 	}, { deep: true });
+
+	watch(sliceData, () => {
+		tableData.value = sliceData.value;
+	});
 
 	return {
 		tableData,
@@ -96,27 +100,18 @@ export function useData(data: Ref<AnyObject[]>, sortField: Partial<SortKeys>, pa
 }
 
 // 勾选相关
-export function useChecked(sourceData: Ref<TableRecord[]>, allData: Ref<TableRecord[]>) {
+export function useChecked(tableData: Ref<TableRecord[]>, allData: Ref<TableRecord[]>) {
 	const checked = ref(false);
 	const vm = getCurrentInstance();
 
-	// 是否处于部分勾选状态
-	const isHalfChecked = computed(() => {
-		let hasChecked = false;
-		let isAllCheced = true;
-		sourceData.value.forEach((item) => {
-			if (!hasChecked) {
-				hasChecked = item.selected;
-			}
-			if (isAllCheced) {
-				isAllCheced = item.selected;
-			}
-		});
-		return hasChecked && !isAllCheced;
-	});
-
 	const selectedData = computed(() => {
 		return allData.value.filter(item => item.selected);
+	});
+
+	// 是否处于部分勾选状态
+	const isHalfChecked = computed(() => {
+		const selectedLen = selectedData.value.length;
+		return selectedLen > 0 && tableData.value.length > selectedLen;
 	});
 
 	/**
@@ -126,7 +121,7 @@ export function useChecked(sourceData: Ref<TableRecord[]>, allData: Ref<TableRec
 	const onChangeSelections = (isChecked: boolean) => {
 		checked.value = isChecked;
 		const selectedItems: TableRecord[] = [];
-		sourceData.value.forEach(item => {
+		tableData.value.forEach(item => {
 			if (!item.selected) {
 				selectedItems.push(item);
 			}
@@ -141,8 +136,8 @@ export function useChecked(sourceData: Ref<TableRecord[]>, allData: Ref<TableRec
 		vm?.emit('select', [record], selectedData.value);
 	}
 
-	watch(sourceData, () => {
-		checked.value = sourceData.value.every(item => item.selected);
+	watch(tableData, () => {
+		checked.value = tableData.value.every(item => item.selected);
 	}, { immediate: true });
 
 	return {
