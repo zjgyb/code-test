@@ -32,11 +32,12 @@ export default defineComponent({
 			return (
 				<label class="sf-checkbox">
 					<span class={classes.value}></span>
-					<input class="sf-checkbox_input"
-						   type="checkbox"
-						   checked={props.checked}
-						   onChange={onCheckboxChange}
-						   disabled={props.disabled} />
+					<input 
+						class="sf-checkbox_input"
+						type="checkbox"
+						checked={props.checked}
+						onChange={onCheckboxChange}
+						disabled={props.disabled} />
 				</label>
 			)
 		}

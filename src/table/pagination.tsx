@@ -9,11 +9,11 @@ import type { TablePaginationOptions } from './types';
 import { SfPagination } from '../pagination';
 
 export function renderPagination(options: TablePaginationOptions) {
-    const { pagination, props, onChangePager } = options;
-    
-    if (props.pagination === false) {
-        return null;
-    }
-    
-    return <SfPagination class="sf-table-pagination" current={pagination.current} total={pagination.total} onChange={onChangePager} />
+	const { pagination, props, onChangePager } = options;
+
+	if (props.pagination === false) {
+		return null;
+	}
+
+	return <SfPagination class="sf-table-pagination" current={pagination.current} total={pagination.total} onChange={onChangePager} />
 }

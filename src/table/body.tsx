@@ -14,21 +14,21 @@ export function renderBody(options: TableBodyOptions) {
 	return (
 		tableData.value.map(record => {
 			return <tr>
-				{ props.selectable && 
+				{props.selectable &&
 					<td class={tdClasses.value} style={tdStyles.value}>
 						<div class="sf-table-cell-selection">
 							<SfCheckbox checked={record.selected} onChange={() => onChangeCheckbox(record)} />
 						</div>
-					</td> 
+					</td>
 				}
 				{
 					props.columns.map(column => {
 
 						// 判断是否存在slots
-						const vnodes = context.slots?.body?.({column, record});					
+						const vnodes = context.slots?.body?.({ column, record });
 						const hasVNode = vnodes?.some(vnode => vnode.text || vnode.tag);
 						return <td class={tdClasses.value} style={tdStyles.value} colspan={1}>
-							{ hasVNode ? vnodes : record[column.key] }
+							{hasVNode ? vnodes : record[column.key]}
 						</td>
 					})
 				}

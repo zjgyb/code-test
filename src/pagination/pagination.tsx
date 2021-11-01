@@ -5,7 +5,7 @@
  */
 
 import type { PaginationPublicProps } from './types';
-import type { Ref, SetupContext }from '@vue/composition-api';
+import type { Ref, SetupContext } from '@vue/composition-api';
 
 import { computed, defineComponent } from '@vue/composition-api';
 import { paginationProps } from './types';

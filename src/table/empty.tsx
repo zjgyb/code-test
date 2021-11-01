@@ -11,7 +11,7 @@ export function renderEmpty(props: TablePublicProps, context: SetupContext) {
 	return (
 		<tr class="sf-table-placeholder">
 			<td class="sf-table-cell" colspan={props.columns.length}>
-				{ context.slots?.empty?.() || props.emptyText }
+				{context.slots?.empty?.() || props.emptyText}
 			</td>
 		</tr>
 	)

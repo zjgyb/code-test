@@ -43,7 +43,7 @@ export default defineComponent({
               {!props.data.length ? emptyNode : bodyNode}
             </tbody>
           </table>
-          { props.pagination !== false && paginationNode }
+          { props.pagination !== false && paginationNode}
         </div>
       )
     }

@@ -45,7 +45,7 @@ export function usePager(options: Ref<Pagination | false>, total: ComputedRef<nu
 	});
 
 	// 改变分页配置
-	watch(options, (newVal) => {     
+	watch(options, (newVal) => {
 		merge(paginationOptions, newVal || {});
 	}, { deep: true });
 
