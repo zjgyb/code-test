@@ -6,19 +6,14 @@
 
 import type { CheckboxPublicProps } from './types';
 
-import { computed, defineComponent } from '@vue/composition-api';
+import { computed, defineComponent, getCurrentInstance } from '@vue/composition-api';
 import { checkboxProps } from './types';
 
 export default defineComponent({
 	name: 'SfCheckbox',
 	props: checkboxProps,
-	setup(props: CheckboxPublicProps, context) {
-		const onCheckboxChange = (event: Event) => {
-			const value = (event.target as HTMLInputElement).checked;
-			context.emit('update:checked', value);
-			context.emit('change', value);
-		}
-
+	setup(props: CheckboxPublicProps) {
+		const { onCheckboxChange } = useEvents();
 		const classes = computed(() => {
 			return {
 				'sf-checkbox_inner': true,
@@ -43,3 +38,15 @@ export default defineComponent({
 		}
 	}
 });
+
+function useEvents() {
+	const vm = getCurrentInstance();
+	const onCheckboxChange = (event: Event) => {
+		const value = (event.target as HTMLInputElement).checked;
+		vm?.emit('update:checked', value);
+		vm?.emit('change', value);
+	}
+	return {
+		onCheckboxChange
+	}
+}

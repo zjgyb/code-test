@@ -11,7 +11,11 @@ import { renderHeader } from './header';
 import { renderPagination } from './pagination';
 import { renderEmpty } from './empty';
 import { renderBody } from './body';
-import { usePager, useData, useChecked, useSort, useClasses } from './hooks';
+import { useClasses } from './composables/use-classes';
+import { useSort } from './composables/use-sort';
+import { usePager } from './composables/use-pager';
+import { useChecked } from './composables/use-checked';
+import { useData } from './composables/use-data';
 
 export default defineComponent({
   name: 'Table',

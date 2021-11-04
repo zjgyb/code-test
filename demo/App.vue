@@ -61,6 +61,7 @@ export default defineComponent({
     const pagination = ref<Partial<Pagination> | false>({
       total: 10,
     });
+    const testData = ref(data);
     const fetchData = async (pageOpt?: any, sortField?: any) => {
       console.log(pageOpt, sortField);
       // 传分页与排序相关的字段
@@ -87,6 +88,7 @@ export default defineComponent({
 
     setTimeout(() => {
       pagination.value = false;
+      testData.value = testData.value.reverse();
     }, 3000)
 
     const current = ref(1);
@@ -96,7 +98,7 @@ export default defineComponent({
     // fetchData();
     return {
       columns,
-      data,
+      data: testData,
       data1: tableData,
       fetchData,
       pagination,

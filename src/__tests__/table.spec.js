@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils'
+import { cloneDeep } from 'lodash-es';
 import { TestTable } from '../table'
 
 export const columns = [{
@@ -41,16 +42,32 @@ describe('Table', () => {
         }).not.toThrow()
     });
 
-    test('props empty data', () => {
+    test('props columns', async() => {
+        const wrapper = TableMount({
+            propsData: {
+                data,
+                columns
+            },
+        });
+        expect(wrapper.find('.sf-table-cell-title').text()).toBe(columns[0].title);
+        wrapper.setProps({ columns: cloneDeep(columns).reverse() });
+        await wrapper.vm.$nextTick();
+        expect(wrapper.find('.sf-table-cell-title').text()).toBe(columns[columns.length - 1].title);
+    });
+
+    test('props empty data', async() => {
         const wrapper = TableMount({
             propsData: {
                 data: [],
                 columns
             },
-        })
+        });
 
-        expect(wrapper.find('.sf-table-placeholder').exists()).toBeTruthy()
-    })
+        expect(wrapper.find('.sf-table-placeholder').exists()).toBeTruthy();
+        wrapper.setProps({ data });
+        await wrapper.vm.$nextTick();
+        expect(wrapper.find('.sf-table-placeholder').exists()).toBeFalsy();
+    });
 
     test('props emptyText', () => {
         const wrapper = TableMount({
@@ -61,7 +78,7 @@ describe('Table', () => {
             },
         })
         expect(wrapper.find('.sf-table-placeholder .sf-table-cell').text()).toEqual('No')
-    })
+    });
 
     test('sortable', async() => {
         const wrapper = TableMount({
@@ -153,7 +170,7 @@ describe('Table', () => {
         expect(wrapper.html()).toContain(emptySlots.template)
         expect(wrapper.find('.test-empty').exists()).toBeTruthy()
         expect(wrapper.find('.test-empty').text()).toEqual('HaHaHa')
-    })
+    });
 
     test('slots header', () => {
         const headerSlots = `
@@ -178,7 +195,7 @@ describe('Table', () => {
         expect(wrapper.find('.test-header').text()).toEqual('test');
     });
 
-    test('table header hide', () => {
+    test('table header hide', async() => {
         const wrapper = TableMount({
             propsData: {
                 data,
@@ -187,6 +204,9 @@ describe('Table', () => {
             },
         });
         expect(wrapper.find('.sf-table-thead').exists()).toBeFalsy();
+        wrapper.setProps({ hasHeader: true });
+        await wrapper.vm.$nextTick();
+        expect(wrapper.find('.sf-table-thead').exists()).toBeTruthy();
     });
 
     test('slots body', async() => {
@@ -239,7 +259,7 @@ describe('Table', () => {
         expect(headerCheckboxInput.element.checked).toBeTruthy();
     });
 
-    test('table rowHeight', () => {
+    test('table rowHeight', async() => {
         const wrapper = TableMount({
             propsData: {
                 data,
@@ -249,5 +269,8 @@ describe('Table', () => {
         });
         const td = wrapper.find('tbody td');
         expect(td.attributes().style).toContain('64px');
+        wrapper.setProps({ rowHeight: 'lg' });
+        await wrapper.vm.$nextTick();
+        expect(wrapper.find('.sf-table-cell--lg')).toBeTruthy();
     });
 })
